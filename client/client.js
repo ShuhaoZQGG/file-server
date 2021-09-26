@@ -1,5 +1,5 @@
 const net = require('net');
-const {host, port, name} = require('./constant');
+const {host, port, name} = require('../server/constant');
 
 const connect = function() {
   const conn = net.createConnection({ 
@@ -8,11 +8,13 @@ const connect = function() {
   });
 
   conn.setEncoding('utf8'); // interpret data as text
+  
+  console.log(`${name} connected!`)
+  console.log('Hello there! Please enter the file name that you want to retrieve:');
 
-  const myName = name;
 
   conn.on('data', (data) => {
-    conn.write(data);
+    console.log('server says:', data);
   });
 
   return conn;

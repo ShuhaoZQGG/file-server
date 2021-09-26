@@ -1,5 +1,4 @@
 const {connect} = require('./client');
-const {name} = require('./constant');
 
 let connection;
 
