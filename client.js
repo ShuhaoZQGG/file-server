@@ -11,15 +11,9 @@ const connect = function() {
 
   const myName = name;
 
-  conn.on('connect', () => {
-    conn.write(`Hello from client ${myName}!`);
-  });
-
-
   conn.on('data', (data) => {
-    console.log("DATA CAME IN!!!!!");
-    console.log(data);
-  })
+    conn.write(data);
+  });
 
   return conn;
 }

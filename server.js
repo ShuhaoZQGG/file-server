@@ -1,18 +1,9 @@
 const net = require('net');
-
+const fs = require('fs');
 
 const setServer = function() {
   const server = net.createServer();
-  server.on('connection', (client) => {
-    console.log('New client connected!');
-    client.write('Hello there! Please enter the file name that you want to retrieve:');
-
-    client.setEncoding('utf8'); // interpret data as text
-    client.on('data', (data) => {
-      console.log('Message from client: ', data)
-    });
-  });
-
+  
   server.listen(3000, () => {
     console.log('Server listening on port 3000!');
   });
@@ -20,6 +11,6 @@ const setServer = function() {
   return server;
 }
 
-module.export = {
+module.exports = {
   setServer
 }

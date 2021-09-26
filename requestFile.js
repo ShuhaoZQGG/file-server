@@ -12,8 +12,14 @@ const setupInput = function(conn) {
 };
 
 const handleUserInput = function(input) {
-  connection.write(`${name} is asking for file ${input}`)
+  let str = input.toString();
+  str = str.trim();
+  connection.write(str)
 }
 
 
 setupInput(connect());
+
+module.exports = {
+  setupInput
+}
